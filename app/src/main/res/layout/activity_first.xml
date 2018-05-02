@@ -16,6 +16,25 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Current location"
+        android:background="@drawable/rounded_button"
+        android:textColor="#FFFFFF"
+        android:id="@+id/currentlocation"
+        android:layout_below="@+id/place_autocomplete_fragment"
+        android:layout_alignEnd="@+id/signout"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="26dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/currentlocation"/>
     <Button
         android:layout_width="200dp"
         android:layout_height="50dp"
