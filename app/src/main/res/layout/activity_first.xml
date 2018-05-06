@@ -9,25 +9,23 @@
 
     <fragment
         android:id="@+id/place_autocomplete_fragment"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="153dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="18dp" />
 
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="Current location"
-        android:background="@drawable/rounded_button"
-        android:textColor="#FFFFFF"
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:src="@drawable/location"
         android:id="@+id/currentlocation"
-        android:layout_below="@+id/place_autocomplete_fragment"
-        android:layout_alignEnd="@+id/signout"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="26dp" />
+        android:layout_alignTop="@+id/place_autocomplete_fragment"
+        android:layout_toEndOf="@+id/place_autocomplete_fragment"
+        android:layout_alignBottom="@+id/place_autocomplete_fragment" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,15 +34,55 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/currentlocation"/>
     <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="RECORD"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="29dp"
+        android:id="@+id/recordbtn"
+        android:layout_below="@+id/text_view"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tap and Hold Button to Record"
+        android:layout_below="@+id/recordbtn"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/recordlabel"
+        android:layout_marginTop="19dp" />
+    <Button
         android:layout_width="200dp"
         android:layout_height="50dp"
+        android:text="Submit"
+        android:background="@drawable/rounded_button"
+        android:textColor="#FFFFFF"
+        android:id="@+id/submit"
+        android:layout_below="@+id/recordlabel"
+        android:layout_marginTop="22dp"
+        android:layout_alignEnd="@+id/recordbtn"
+        android:layout_alignStart="@+id/recordbtn" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Next"
+        android:background="@drawable/rounded_button"
+        android:textColor="#FFFFFF"
+        android:id="@+id/next"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/submit"
+        android:layout_alignStart="@+id/submit"
+        android:layout_alignEnd="@+id/submit" />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="40dp"
         android:text="Sign out"
         android:background="@drawable/rounded_button"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:textColor="#FFFFFF"
         android:id="@+id/signout"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
