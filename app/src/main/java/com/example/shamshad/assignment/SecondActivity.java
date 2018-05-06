@@ -14,8 +14,11 @@ import android.widget.Toast;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 
@@ -56,7 +59,6 @@ public class SecondActivity extends AppCompatActivity {
                         MediaPlayer mediaPlayer=new MediaPlayer();
                         addressDetails lpath= firebaseRecyclerAdapter.getItem(position);
                         String path=lpath.audio;
-                        Toast.makeText(SecondActivity.this, path, Toast.LENGTH_LONG).show();
 
                         try{
 
@@ -80,9 +82,8 @@ public class SecondActivity extends AppCompatActivity {
                 viewHolder.delete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        DatabaseReference deleteRef= FirebaseDatabase.getInstance().getReference("user").child(user.getUid()).child(firebaseRecyclerAdapter.getRef(position).getKey());
-                        deleteRef.removeValue();
-                        Toast.makeText(SecondActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
+                        DatabaseReference addref=FirebaseDatabase.getInstance().getReference("user").child(user.getUid()).child(firebaseRecyclerAdapter.getRef(position).getKey());
+                        addref.removeValue();
                     }
                 });
             }

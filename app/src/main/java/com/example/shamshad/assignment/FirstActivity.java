@@ -107,7 +107,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_first);
         getSupportActionBar().hide();
 
-        PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
+        final PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
                 getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
         signout = (Button) findViewById(R.id.signout);
         submit= (Button) findViewById(R.id.submit);
@@ -129,8 +129,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
             }
         };
 
-        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-        mRef=FirebaseDatabase.getInstance().getReference("user").child(user.getUid()).push();
+
 
         autocompleteFragment.getView().findViewById(R.id.place_autocomplete_search_button).setVisibility(View.GONE);
         ((EditText) autocompleteFragment.getView().findViewById(R.id.place_autocomplete_search_input)).setHint("Enter the Address");
@@ -177,8 +176,12 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+                mRef=FirebaseDatabase.getInstance().getReference("user").child(user.getUid()).push();
                 uploadAudio();
                 mRef.child("address").setValue(address.getName().toString()+","+address.getAddress().toString());
+                ((EditText) autocompleteFragment.getView().findViewById(R.id.place_autocomplete_search_input)).setText(null);
+
 
             }
         });
