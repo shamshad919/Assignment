@@ -37,6 +37,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:text="RECORD"
+        android:textColor="#FFFFFF"
         android:background="@drawable/rounded_button"
         android:layout_marginTop="29dp"
         android:id="@+id/recordbtn"

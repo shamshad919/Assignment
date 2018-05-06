@@ -66,8 +66,23 @@ public class SecondActivity extends AppCompatActivity {
                             mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                                 @Override
                                 public void onPrepared(final MediaPlayer mp) {
-                                    mp.start();
 
+                                 viewHolder.button.setOnClickListener(new View.OnClickListener() {
+                                     @Override
+                                     public void onClick(View v) {
+                                         if(mp.isPlaying()){
+                                             mp.pause();
+                                             viewHolder.button.setImageResource(R.drawable.play);
+
+                                         }
+                                         else {
+                                             mp.start();
+                                             viewHolder.button.setImageResource(R.drawable.pause);
+
+                                         }
+
+                                     }
+                                 });
 
                                 }
                             });
@@ -76,6 +91,7 @@ public class SecondActivity extends AppCompatActivity {
                         }catch (IOException e){
                             e.printStackTrace();
                         }
+                        viewHolder.button.setImageResource(R.drawable.play);
                     }
 
                 });
