@@ -138,8 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                     }
                                     else{
-                                        User u=new User(user.getEmail(),user.getDisplayName());
-                                        myRef.setValue(u);
+
                                     }
                                 }
 

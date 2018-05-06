@@ -13,6 +13,6 @@ public class detailsViewholder extends RecyclerView.ViewHolder {
     TextView address;
     public detailsViewholder(View itemView) {
         super(itemView);
-        address=itemView.findViewById(R.id.address_text);
+        //address=itemView.findViewById(R.id.address_text);
     }
 }

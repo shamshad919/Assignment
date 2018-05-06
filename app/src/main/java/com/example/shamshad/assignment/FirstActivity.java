@@ -58,6 +58,7 @@ import java.net.SecureCacheResponse;
 import java.net.URL;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 import java.util.jar.*;
 import java.util.jar.Manifest;
 
@@ -177,7 +178,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 uploadAudio();
-                mRef.child("Address").setValue(address.getName().toString()+","+address.getAddress().toString());
+                mRef.child("address").setValue(address.getName().toString()+","+address.getAddress().toString());
 
             }
         });
@@ -215,7 +216,9 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         mProgress.setMessage("Uploadig...");
         mProgress.show();
         final FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-        StorageReference filepath=mStorage.child("Audio").child(user.getUid()).child("new_audio.mp3");
+        Random random=new Random();
+        int aNumber = (int) (20 * Math.random()) + 1;
+        StorageReference filepath=mStorage.child("Audio").child(user.getUid()).child(user.getUid()+aNumber+".mp3");
         Uri uri=Uri.fromFile(new File(mFileName));
 
         filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
