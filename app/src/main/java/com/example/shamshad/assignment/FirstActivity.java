@@ -183,6 +183,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                 ((EditText) autocompleteFragment.getView().findViewById(R.id.place_autocomplete_search_input)).setText(null);
 
 
+
             }
         });
         next.setOnClickListener(this);
@@ -232,7 +233,8 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                 Uri downloadUrl = taskSnapshot.getDownloadUrl();
 
                 mRef.child("audio").setValue(downloadUrl.toString());
-                recordlabel.setText("Uploading finished");
+                Toast.makeText(FirstActivity.this, "Upload Finished..", Toast.LENGTH_SHORT).show();
+                recordlabel.setText("Tap and Hold Button to Record");
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
